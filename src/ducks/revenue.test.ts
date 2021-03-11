@@ -7,7 +7,8 @@ describe('Increase Revenue reducer', () => {
         0,
         {
           type: StorageActions.DECREASE_STORAGE,
-          payload: 4,
+          price: 4,
+          amount: 1,
         }),
     ).toBe(4);
   });
@@ -17,8 +18,9 @@ describe('Increase Revenue reducer', () => {
         6,
         {
           type: StorageActions.DECREASE_STORAGE,
-          payload: 69,
+          price: 12,
+          amount: 3,
         }),
-    ).toBe(75);
+    ).toBe(42);
   });
 });

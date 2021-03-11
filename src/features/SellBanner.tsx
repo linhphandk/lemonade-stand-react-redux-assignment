@@ -5,22 +5,25 @@ import {IDecreaseStorage} from '../ducks/storage.interface';
 import {StorageActions} from '../ducks/storage';
 import PropTypes from 'prop-types';
 import {useState} from 'react';
+import {Button} from 'react-bootstrap';
 const StorageBanner: FC<ISellBannerProps> = (props) => {
   const [price] = useState<number>(4);
 
   return (
     <div>
-      {props.revenue}
-      <button onClick={() => {
-        props.decreaseStorage(1, price);
-      }}>Increase storage</button>
-      <span>Storage: {props.revenue}</span>
+      <Button onClick={() => {
+        props.storage > 0 ?
+          props.decreaseStorage(1, price) :
+          console.warn('storage is empty');
+      }}>Sell</Button>
+      <span>Revenue: {props.revenue}</span>
     </div>
   );
 };
 
 const mapStateToProps = (state:any) => ({
   revenue: state.revenue,
+  storage: state.storage,
 });
 
 const mapDispatchToPros = (dispatch: any) => ({
@@ -37,6 +40,7 @@ const mapDispatchToPros = (dispatch: any) => ({
 
 StorageBanner.propTypes = {
   revenue: PropTypes.number.isRequired,
+  storage: PropTypes.number.isRequired,
   decreaseStorage: PropTypes.func.isRequired,
 };
 

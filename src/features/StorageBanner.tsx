@@ -4,12 +4,12 @@ import {IStorageBannerProps} from './StorageBanner.interface';
 import {IAddStorage} from '../ducks/storage.interface';
 import {StorageActions} from '../ducks/storage';
 import PropTypes from 'prop-types';
+import {Button} from 'react-bootstrap';
 const StorageBanner: FC<IStorageBannerProps> = (props) => (
   <div>
-    {props.storage}
-    <button onClick={() => {
+    <Button onClick={() => {
       props.increaseStorage(1);
-    }}>Increase storage</button>
+    }}>Increase storage</Button>
     <span>Storage: {props.storage}</span>
   </div>
 );

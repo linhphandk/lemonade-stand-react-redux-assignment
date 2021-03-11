@@ -1,0 +1,22 @@
+.card__container{
+    margin: 1%!important;
+    flex-basis: 98%!important;
+    flex: unset!important
+}
+.card__container::after {
+  content: "";
+  flex: auto;
+}
+@media only screen and (min-width: 768px) {
+  .card__container {
+    margin: 1% !important;
+    flex-basis: 48% !important
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .card__container {
+    margin: 1% !important;
+    flex-basis: 23% !important
+  }
+}
